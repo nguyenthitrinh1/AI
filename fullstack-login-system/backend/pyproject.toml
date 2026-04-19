@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "fullstack-login-backend"
+version = "1.0.0"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.111.0",
+    "uvicorn[standard]>=0.29.0",
+    "sqlalchemy>=2.0.0",
+    "pydantic[email]>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "passlib[bcrypt]>=1.7.4",
+    "PyJWT>=2.8.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.4.0",
+    "black>=24.0.0",
+    "isort>=5.13.0",
+]
+
+# ---------------------------------------------------------------------------
+# Ruff – linting (replaces flake8, pylint, etc.)
+# ---------------------------------------------------------------------------
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "UP",  # pyupgrade
+]
+ignore = ["B008"]  # FastAPI Depends() patterns
+
+[tool.ruff.isort]
+known-first-party = ["app"]
+
+# ---------------------------------------------------------------------------
+# Black – formatter
+# ---------------------------------------------------------------------------
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+# ---------------------------------------------------------------------------
+# isort – import sorting
+# ---------------------------------------------------------------------------
+[tool.isort]
+profile = "black"
+line_length = 100
+known_first_party = ["app"]

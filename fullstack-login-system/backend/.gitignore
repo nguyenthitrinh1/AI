@@ -1,0 +1,63 @@
+# ============================================================
+# Backend .gitignore  (Python / FastAPI)
+# ============================================================
+
+# ── Secrets ────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Virtual environments ────────────────────────────────────
+.venv/
+venv/
+env/
+.python-version
+
+# ── Python bytecode & caches ────────────────────────────────
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ── Build artefacts ─────────────────────────────────────────
+*.egg-info/
+dist/
+build/
+.eggs/
+MANIFEST
+
+# ── Database files ──────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+
+# ── Logs ────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── RAG / AI artefacts ──────────────────────────────────────
+# FAISS index (rebuilt at runtime from source documents)
+faiss_index/
+*.index
+*.faiss
+
+# Temporary document uploads
+uploads/
+
+# ── Coverage / tests ────────────────────────────────────────
+.coverage
+htmlcov/
+coverage.xml
+test-results/
+.tox/
+
+# ── OS & editor noise ──────────────────────────────────────
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
